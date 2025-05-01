@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
+import { trackPurchase } from '@/lib/tracking';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);

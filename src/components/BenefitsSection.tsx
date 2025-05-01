@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
+import { trackPurchase } from '@/lib/tracking';
 
 const benefits = [
   {

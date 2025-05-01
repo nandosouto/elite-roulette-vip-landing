@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 // Declare global trackPurchase function for window
 declare global {
   interface Window {
-    trackPurchase: any;
+    trackPurchase: () => void;
   }
 }
 

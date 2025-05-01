@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from '@/components/ui/button';
+import { trackPurchase } from '@/lib/tracking';
 
 // Sample testimonials data - in a real app, you'd have actual data and images
 const testimonials = [
@@ -53,6 +54,126 @@ const testimonials = [
     name: "Gustavo Pereira", 
     text: "Achei que era golpe, mas resolvi testar. Resultado: R$600 no bolso em 3 dias!", 
     profile: "https://randomuser.me/api/portraits/men/19.jpg" 
+  },
+  { 
+    id: 9, 
+    name: "Luciana Ferreira", 
+    text: "Comecei ontem e já ganhei R$350! Esse método da Roleta Elite é fantástico!", 
+    profile: "https://randomuser.me/api/portraits/women/22.jpg" 
+  },
+  { 
+    id: 10, 
+    name: "Roberto Gomes", 
+    text: "Depois de 3 dias usando o método, consegui R$1.200 de lucro. Recomendo muito!", 
+    profile: "https://randomuser.me/api/portraits/men/25.jpg" 
+  },
+  { 
+    id: 11, 
+    name: "Camila Rocha", 
+    text: "Esse método é incrível! Fiz R$280 no meu primeiro dia de testes.", 
+    profile: "https://randomuser.me/api/portraits/women/29.jpg" 
+  },
+  { 
+    id: 12, 
+    name: "João Paulo", 
+    text: "Os sinais são precisos demais. Consegui uma taxa de 90% de acerto.", 
+    profile: "https://randomuser.me/api/portraits/men/32.jpg" 
+  },
+  { 
+    id: 13, 
+    name: "Amanda Nunes", 
+    text: "Consegui pagar todas as minhas contas do mês com apenas 2 dias de método!", 
+    profile: "https://randomuser.me/api/portraits/women/38.jpg" 
+  },
+  { 
+    id: 14, 
+    name: "Thiago Martins", 
+    text: "R$700 na primeira semana, isso é inacreditável! O método realmente funciona.", 
+    profile: "https://randomuser.me/api/portraits/men/45.jpg" 
+  },
+  { 
+    id: 15, 
+    name: "Patrícia Lopes", 
+    text: "Estava desconfiada no começo, mas os resultados falam por si. R$400 em lucro!", 
+    profile: "https://randomuser.me/api/portraits/women/42.jpg" 
+  },
+  { 
+    id: 16, 
+    name: "Ricardo Souza", 
+    text: "Comecei com apenas R$50 e já estou com R$800. Método fantástico!", 
+    profile: "https://randomuser.me/api/portraits/men/51.jpg" 
+  },
+  { 
+    id: 17, 
+    name: "Bianca Torres", 
+    text: "Os sinais são extremamente precisos. Já lucrei mais de R$1.500 em duas semanas!", 
+    profile: "https://randomuser.me/api/portraits/women/54.jpg" 
+  },
+  { 
+    id: 18, 
+    name: "Marcos Vieira", 
+    text: "Método incrível! Consegui quitar meu carro em apenas 1 mês de operações.", 
+    profile: "https://randomuser.me/api/portraits/men/62.jpg" 
+  },
+  { 
+    id: 19, 
+    name: "Vanessa Alves", 
+    text: "Nunca vi nada igual. R$550 em apenas um final de semana usando o método!", 
+    profile: "https://randomuser.me/api/portraits/women/66.jpg" 
+  },
+  { 
+    id: 20, 
+    name: "Leonardo Castro", 
+    text: "O suporte é incrível e os sinais são perfeitos. Já lucrei mais de R$2.500!", 
+    profile: "https://randomuser.me/api/portraits/men/72.jpg" 
+  },
+  { 
+    id: 21, 
+    name: "Daniela Ribeiro", 
+    text: "Método sensacional! Consegui uma renda extra de R$2.000 por semana!", 
+    profile: "https://randomuser.me/api/portraits/women/75.jpg" 
+  },
+  { 
+    id: 22, 
+    name: "Felipe Azevedo", 
+    text: "Já tentei vários métodos, mas este é o único que realmente funciona. R$900 em lucro!", 
+    profile: "https://randomuser.me/api/portraits/men/77.jpg" 
+  },
+  { 
+    id: 23, 
+    name: "Carla Nascimento", 
+    text: "Muito obrigada pelos sinais! Consegui R$600 em apenas 3 dias!", 
+    profile: "https://randomuser.me/api/portraits/women/82.jpg" 
+  },
+  { 
+    id: 24, 
+    name: "Bruno Cardoso", 
+    text: "Achei que era impossível, mas consegui R$430 logo no primeiro dia com o método!", 
+    profile: "https://randomuser.me/api/portraits/men/88.jpg" 
+  },
+  { 
+    id: 25, 
+    name: "Renata Duarte", 
+    text: "Com os sinais da Roleta Elite, já ganhei mais de R$1.800 em duas semanas!", 
+    profile: "https://randomuser.me/api/portraits/women/90.jpg" 
+  },
+  { 
+    id: 26, 
+    name: "Paulo Henrique", 
+    text: "Método revolucionário! Ganhei R$350 no meu primeiro dia de uso!", 
+    profile: "https://randomuser.me/api/portraits/men/92.jpg" 
+  },
+  { 
+    id: 27, 
+    name: "Luiza Campos", 
+    text: "Os sinais são impressionantes! Consegui R$1.200 em apenas uma semana!", 
+    profile: "https://randomuser.me/api/portraits/women/56.jpg" 
+  },
+  { 
+    id: 28, 
+    name: "Antônio Soares", 
+    text: "Depois de usar o método por 5 dias, já fiz mais de R$1.600 em lucro!", 
+    profile: "https://randomuser.me/api/portraits/men/99.jpg" 
   }
 ];
 

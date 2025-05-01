@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from '@/components/ui/button';
+import { trackPurchase } from '@/lib/tracking';
 
 const faqs = [
   {
