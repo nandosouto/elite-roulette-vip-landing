@@ -1,10 +1,12 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { trackPurchase } from '@/lib/tracking';
+import { trackPurchase, trackLead } from '@/lib/tracking';
 
 const HeroSection: React.FC = () => {
   const handleCTA = () => {
+    // Track both lead and purchase events
+    trackLead();
     trackPurchase();
     window.location.href = 'https://t.me/ederson27top_bot?start=w38394452';
   };

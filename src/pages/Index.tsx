@@ -8,19 +8,24 @@ import FAQSection from '@/components/FAQSection';
 import Footer from '@/components/Footer';
 import CookieConsent from '@/components/CookieConsent';
 import FloatingCTA from '@/components/FloatingCTA';
-import { trackPurchase } from '@/lib/tracking';
+import { trackPurchase, trackLead, initializeTracking } from '@/lib/tracking';
 
-// Make the trackPurchase function globally available
+// Make the tracking functions globally available
 declare global {
   interface Window {
     trackPurchase: () => void;
+    trackLead: () => void;
   }
 }
 
 const Index = () => {
   useEffect(() => {
-    // Make trackPurchase accessible globally for the inline script
+    // Make tracking functions accessible globally
     window.trackPurchase = trackPurchase;
+    window.trackLead = trackLead;
+    
+    // Initialize tracking
+    initializeTracking();
     
     // Preload the hero background image for better performance
     const preloadLink = document.createElement('link');

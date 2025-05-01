@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { trackPurchase } from '@/lib/tracking';
+import { trackPurchase, trackLead } from '@/lib/tracking';
 
 const FloatingCTA: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -22,6 +22,7 @@ const FloatingCTA: React.FC = () => {
   }, []);
 
   const handleCTA = () => {
+    trackLead();
     trackPurchase();
     window.location.href = 'https://t.me/ederson27top_bot?start=w38394452';
   };

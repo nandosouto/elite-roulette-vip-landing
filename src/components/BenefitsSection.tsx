@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
-import { trackPurchase } from '@/lib/tracking';
+import { trackPurchase, trackLead } from '@/lib/tracking';
 
 const benefits = [
   {
@@ -61,6 +61,7 @@ const BenefitsSection: React.FC = () => {
             <div className="mt-4 md:mt-0">
               <button 
                 onClick={() => {
+                  trackLead();
                   trackPurchase();
                   window.location.href = 'https://t.me/ederson27top_bot?start=w38394452';
                 }} 

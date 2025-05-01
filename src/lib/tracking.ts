@@ -1,4 +1,6 @@
 
+import { trackEvent, setupScrollDepthTracking, setupTimeOnPageTracking } from './advancedTracking';
+
 /**
  * Sets a cookie with the given name, value and expiration days
  */
@@ -30,24 +32,20 @@ export const getCookie = (name: string): string | null => {
  * Tracks the Purchase event when CTA is clicked
  */
 export const trackPurchase = () => {
-  const eventData = {
-    event: 'Purchase',
-    session_id: 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
-    event_id: 'event_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9),
-    utm_source: new URLSearchParams(window.location.search).get('utm_source') || '',
-    utm_medium: new URLSearchParams(window.location.search).get('utm_medium') || '',
-    utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign') || '',
-    screen_resolution: window.screen.width + 'x' + window.screen.height,
-    language: navigator.language,
-    timezone_offset: new Date().getTimezoneOffset(),
-    timestamp: new Date().toISOString()
-  };
+  // Use a nova implementação de rastreamento avançado
+  return trackEvent('purchase');
+};
 
-  // Store the event data in cookie
-  setCookie('roleta_elite_session', JSON.stringify(eventData), 30);
-  
-  // Log the event data (can be replaced with actual analytics integration)
-  console.log('Purchase event tracked:', eventData);
-  
-  return eventData;
+/**
+ * Tracks the Lead event when CTA is clicked
+ */
+export const trackLead = () => {
+  // Use a nova implementação de rastreamento avançado
+  return trackEvent('lead');
+};
+
+// Initialize scroll depth and time on page tracking
+export const initializeTracking = () => {
+  setupScrollDepthTracking();
+  setupTimeOnPageTracking();
 };
