@@ -206,7 +206,7 @@ export const trackEvent = (eventType: 'lead' | 'purchase' | 'scroll_depth' | 'ti
   }
   
   // Enviar dados para GA4
-  if (typeof gtag === 'function') {
+  if (window.gtag) {
     const ga4Params: Record<string, any> = {
       ...baseParams
     };
@@ -217,11 +217,11 @@ export const trackEvent = (eventType: 'lead' | 'purchase' | 'scroll_depth' | 'ti
       ga4Params.items = [{ id: 'grupo_free_roleta_purchase', name: baseParams.content_name }];
     }
     
-    gtag('event', eventType === 'lead' ? 'Telegram_Click' : eventType === 'purchase' ? 'Telegram_Purchase' : eventType, ga4Params);
+    window.gtag('event', eventType === 'lead' ? 'Telegram_Click' : eventType === 'purchase' ? 'Telegram_Purchase' : eventType, ga4Params);
   }
   
   // Enviar dados para Facebook Pixel
-  if (typeof fbq === 'function') {
+  if (window.fbq) {
     const fbPixelEvent = eventType === 'lead' ? 'Lead' : eventType === 'purchase' ? 'Purchase' : 'CustomEvent';
     
     const fbParams: Record<string, any> = {};
@@ -240,7 +240,7 @@ export const trackEvent = (eventType: 'lead' | 'purchase' | 'scroll_depth' | 'ti
       fbParams.content_name = baseParams.content_name;
     }
     
-    fbq('track', fbPixelEvent, fbParams);
+    window.fbq('track', fbPixelEvent, fbParams);
   }
   
   // Log the event data
