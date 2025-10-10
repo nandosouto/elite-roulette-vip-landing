@@ -12,18 +12,21 @@ const Footer: React.FC = () => {
             Roleta <span className="text-roulette-accent">Elite</span>
           </div>
           
-          <div className="flex flex-wrap justify-center gap-6">
-            <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
-              Política de Privacidade
+          <div className="flex flex-wrap justify-center gap-6 text-center">
+            <a href="#inicio" className="text-white/70 hover:text-white transition-colors text-sm">
+              Início
             </a>
-            <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
-              Termos de Uso
+            <a href="#como-funciona" className="text-white/70 hover:text-white transition-colors text-sm">
+              Como Funciona
             </a>
-            <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
-              Jogo Responsável
+            <a href="#beneficios" className="text-white/70 hover:text-white transition-colors text-sm">
+              Benefícios
             </a>
-            <a href="#" className="text-white/70 hover:text-white transition-colors text-sm">
-              Contato
+            <a href="#depoimentos" className="text-white/70 hover:text-white transition-colors text-sm">
+              Depoimentos
+            </a>
+            <a href="#faq" className="text-white/70 hover:text-white transition-colors text-sm">
+              FAQ
             </a>
           </div>
         </div>
