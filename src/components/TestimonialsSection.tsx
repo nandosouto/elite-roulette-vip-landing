@@ -206,10 +206,12 @@ const TestimonialsSection: React.FC = () => {
                 <CarouselItem key={item.id}>
                   <Card className="bg-white/5 border border-white/10 backdrop-blur-sm">
                     <CardContent className="p-6 flex flex-col items-center">
-                      <img 
-                        src={item.profile} 
-                        alt={item.name} 
+                      <img
+                        src={item.profile}
+                        alt={item.name}
                         className="w-16 h-16 rounded-full mb-4 border-2 border-roulette-accent"
+                        loading="lazy"
+                        decoding="async"
                       />
                       <p className="text-white/80 mb-4 text-center">"{item.text}"</p>
                       <p className="text-roulette-accent font-bold">{item.name}</p>
@@ -230,10 +232,12 @@ const TestimonialsSection: React.FC = () => {
           {testimonials.slice(0, visibleCount).map(item => (
             <Card key={item.id} className="bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-all">
               <CardContent className="p-6 flex flex-col items-center">
-                <img 
-                  src={item.profile} 
-                  alt={item.name} 
+                <img
+                  src={item.profile}
+                  alt={item.name}
                   className="w-16 h-16 rounded-full mb-4 border-2 border-roulette-accent"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <p className="text-white/80 mb-4 text-center">"{item.text}"</p>
                 <p className="text-roulette-accent font-bold">{item.name}</p>
